@@ -1,4 +1,3 @@
-import { Card } from "./ui/card";
 import { ScrollArea } from "./ui/scroll-area";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
@@ -6,6 +5,7 @@ import { Send, ArrowLeft, Plus, List } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { useState } from "react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
+import { Card } from "./ui/card";
 
 export const AIAssistant = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -35,19 +35,17 @@ export const AIAssistant = () => {
             </TabsList>
 
             <TabsContent value="chat" className="flex-1 h-full flex flex-col gap-4 mt-0">
-              <div className="flex-1">
-                <ScrollArea className="h-full pr-4">
-                  <div className="space-y-4">
-                    <Card className="p-3 lg:p-4 card-gradient">
-                      <p className="text-sm text-muted-foreground">
-                        Hello! I'm your AI reading companion. I can help you understand the text better and answer any questions you might have.
-                      </p>
-                    </Card>
-                  </div>
-                </ScrollArea>
-              </div>
+              <ScrollArea className="flex-1 pr-4">
+                <div className="space-y-4">
+                  <Card className="p-3 lg:p-4 card-gradient">
+                    <p className="text-sm text-muted-foreground">
+                      Hello! I'm your AI reading companion. I can help you understand the text better and answer any questions you might have.
+                    </p>
+                  </Card>
+                </div>
+              </ScrollArea>
               
-              <div className="flex gap-2">
+              <div className="flex gap-2 mt-auto pt-4 border-t">
                 <Input 
                   placeholder="Ask a question..."
                   className="bg-secondary/50"
@@ -59,29 +57,27 @@ export const AIAssistant = () => {
             </TabsContent>
 
             <TabsContent value="notes" className="flex-1 h-full flex flex-col gap-4 mt-0">
-              <div className="flex-1">
-                <ScrollArea className="h-full pr-4">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <List className="h-4 w-4" />
-                        <span>Your Notes</span>
-                      </div>
-                      <Button variant="outline" size="sm" className="flex items-center gap-2">
-                        <Plus className="h-4 w-4" />
-                        Add Note
-                      </Button>
+              <ScrollArea className="flex-1 pr-4">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <List className="h-4 w-4" />
+                      <span>Your Notes</span>
                     </div>
-                    <Card className="p-3 lg:p-4 card-gradient">
-                      <p className="text-sm text-muted-foreground">
-                        No notes yet. Click the "Add Note" button to create your first note.
-                      </p>
-                    </Card>
+                    <Button variant="outline" size="sm" className="flex items-center gap-2">
+                      <Plus className="h-4 w-4" />
+                      Add Note
+                    </Button>
                   </div>
-                </ScrollArea>
-              </div>
+                  <Card className="p-3 lg:p-4 card-gradient">
+                    <p className="text-sm text-muted-foreground">
+                      No notes yet. Click the "Add Note" button to create your first note.
+                    </p>
+                  </Card>
+                </div>
+              </ScrollArea>
               
-              <div className="flex gap-2">
+              <div className="flex gap-2 mt-auto pt-4 border-t">
                 <Input 
                   placeholder="Add a note..."
                   className="bg-secondary/50"
