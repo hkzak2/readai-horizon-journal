@@ -1,7 +1,7 @@
 import { Card } from "./ui/card";
 import { ScrollArea } from "./ui/scroll-area";
 import { Input } from "./ui/input";
-import { Button } from "./ui/card";
+import { Button } from "./ui/button";
 import { Send } from "lucide-react";
 
 export const AIAssistant = () => {
