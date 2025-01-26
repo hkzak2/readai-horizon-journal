@@ -6,11 +6,11 @@ import { Send } from "lucide-react";
 
 export const AIAssistant = () => {
   return (
-    <Card className="glass h-full w-[400px] p-4 flex flex-col gap-4 animate-fade-in">
+    <Card className="glass bg-card/95 shadow-lg h-[calc(100vh-2rem)] lg:h-[calc(100vh-3rem)] w-full p-3 lg:p-4 flex flex-col gap-4 animate-fade-in">
       <div className="flex-1">
         <ScrollArea className="h-full pr-4">
           <div className="space-y-4">
-            <Card className="p-4 card-gradient">
+            <Card className="p-3 lg:p-4 card-gradient">
               <p className="text-sm text-muted-foreground">
                 Hello! I'm your AI reading companion. I can help you understand the text better and answer any questions you might have.
               </p>
