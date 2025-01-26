@@ -12,20 +12,22 @@ export const AIAssistant = () => {
 
   return (
     <Card className="glass bg-card/95 shadow-lg h-[calc(100vh-2rem)] lg:h-[calc(100vh-3rem)] w-full p-3 lg:p-4 flex flex-col gap-4 animate-fade-in">
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">AI Assistant</h2>
-        <CollapsibleTrigger 
-          asChild
-          onClick={() => setIsCollapsed(!isCollapsed)}
-        >
-          <Button variant="ghost" size="icon" className="h-8 w-8">
-            {isCollapsed ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-          </Button>
-        </CollapsibleTrigger>
-      </div>
-
       <Collapsible open={!isCollapsed} className="flex-1">
-        <CollapsibleContent className="h-full">
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold">AI Assistant</h2>
+          <CollapsibleTrigger asChild>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="h-8 w-8"
+              onClick={() => setIsCollapsed(!isCollapsed)}
+            >
+              {isCollapsed ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            </Button>
+          </CollapsibleTrigger>
+        </div>
+
+        <CollapsibleContent className="h-full mt-4">
           <Tabs defaultValue="chat" className="h-full flex flex-col">
             <TabsList className="w-full justify-start mb-4 bg-background/50">
               <TabsTrigger value="chat">Chat</TabsTrigger>
