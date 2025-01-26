@@ -2,7 +2,7 @@ import { Card } from "./ui/card";
 import { ScrollArea } from "./ui/scroll-area";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { Send, ChevronDown, ChevronUp } from "lucide-react";
+import { Send, ArrowLeft, Plus, List } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { useState } from "react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
@@ -13,7 +13,7 @@ export const AIAssistant = () => {
   return (
     <Card className="glass bg-card/95 shadow-lg h-[calc(100vh-2rem)] lg:h-[calc(100vh-3rem)] w-full p-3 lg:p-4 flex flex-col gap-4 animate-fade-in">
       <Collapsible open={!isCollapsed} className="flex-1">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between border-b pb-2">
           <h2 className="text-lg font-semibold">AI Assistant</h2>
           <CollapsibleTrigger asChild>
             <Button 
@@ -22,16 +22,16 @@ export const AIAssistant = () => {
               className="h-8 w-8"
               onClick={() => setIsCollapsed(!isCollapsed)}
             >
-              {isCollapsed ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              <ArrowLeft className={`h-4 w-4 transition-transform ${isCollapsed ? 'rotate-180' : ''}`} />
             </Button>
           </CollapsibleTrigger>
         </div>
 
         <CollapsibleContent className="h-full mt-4">
           <Tabs defaultValue="chat" className="h-full flex flex-col">
-            <TabsList className="w-full justify-start mb-4 bg-background/50">
-              <TabsTrigger value="chat">Chat</TabsTrigger>
-              <TabsTrigger value="notes">Notes</TabsTrigger>
+            <TabsList className="w-full grid grid-cols-2 mb-4 bg-background/50">
+              <TabsTrigger value="chat" className="flex items-center gap-2">Chat</TabsTrigger>
+              <TabsTrigger value="notes" className="flex items-center gap-2">Notes</TabsTrigger>
             </TabsList>
 
             <TabsContent value="chat" className="flex-1 h-full flex flex-col gap-4 mt-0">
@@ -62,9 +62,19 @@ export const AIAssistant = () => {
               <div className="flex-1">
                 <ScrollArea className="h-full pr-4">
                   <div className="space-y-4">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <List className="h-4 w-4" />
+                        <span>Your Notes</span>
+                      </div>
+                      <Button variant="outline" size="sm" className="flex items-center gap-2">
+                        <Plus className="h-4 w-4" />
+                        Add Note
+                      </Button>
+                    </div>
                     <Card className="p-3 lg:p-4 card-gradient">
                       <p className="text-sm text-muted-foreground">
-                        This is your notes section. You can keep track of important points and insights here.
+                        No notes yet. Click the "Add Note" button to create your first note.
                       </p>
                     </Card>
                   </div>
